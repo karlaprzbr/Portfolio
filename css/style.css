@@ -18,6 +18,16 @@ h1 {
   font-family: 'Roboto', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+i {
+  /* font-size: 20px; */
+  color: white;
+}
+
 /** HEADER **/
 header {
     grid-row: 2;
@@ -32,11 +42,9 @@ header {
 }
 
 header h1 {
-    padding: 20px;
     border: 10px solid black;
     color: black;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /** NAVBAR **/
@@ -73,6 +81,7 @@ nav .icon {
 .main {
     grid-row: 3;
     grid-column: 2;
+    padding: 20px 0;
 }
 
 footer {
@@ -80,6 +89,20 @@ footer {
     grid-column: 1 / 4;
     background-color: dimgray;
     color: white;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+footer img {
+  height: 40px;
+}
+
+.footer-logos div {
+  text-align: right;
+}
+
+footer p {
+  text-align: center;
 }

@@ -1,7 +1,11 @@
 /** FOR TABLETS **/
 @media screen and (max-width:800px) {
+  body {
+    grid-template-rows: 60px 200px auto 200px !important;
+    grid-template-columns: auto !important;
+  }
   nav {
-    justify-content: space-between;
+    justify-content: space-between !important;
   }
   .topnav a:not(:first-child) {
     display: none;
@@ -27,7 +31,25 @@
     display: block !important;
     text-align: left;
   }
-
+  .main {
+    padding: 10px !important;
+  }
+  footer {
+    flex-direction: column !important;
+  }
+  footer p {
+    order: 1;
+    margin: 0 !important;
+  }
+  footer img {
+    order: 2;
+  }
+  footer div {
+    order: 3;
+  }
+  .footer-logos div {
+    text-align: center !important;
+  }
 }
 
 /** FOR MOBILE PHONES **/
