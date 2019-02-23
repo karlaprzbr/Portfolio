@@ -51,7 +51,8 @@ header {
 
 header h1 {
     border: 10px solid black;
-    color: black;
+    color: white;
+    background-color: black;
     text-align: center;
 }
 
