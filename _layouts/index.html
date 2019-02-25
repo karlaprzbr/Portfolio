@@ -1,30 +1,9 @@
 <!doctype>
 <html>
-    <head>
-        <title>Portfolio de Karla Pérez</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
-        <link rel="icon" href="img/logo_portfolio.PNG" type="image/png">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
-    </head>
+    {% include head.html %}
 
     <body>
-        <nav class="topnav" id="myTopnav">
-          <a href="index.html" class="active">ACCUEIL</a>
-          <a href="pages/stages.html">STAGES</a>
-          <a href="#ppe">PPE</a>
-          <a href="pages/cv.html">CV</a>
-          <!-- <a href="#COMPETENCES">COMPETENCES</a> -->
-          <a href="#veilleTechno">VEILLE TECHNOLOGIQUE</a>
-          <a href="javascript:void(0);" class="icon" onclick="openNav()"><i class="fa fa-bars"></i></a>
-          <script src="js/openNav.js"></script>
-        </nav>
-        <header>
-            <h1>PORTFOLIO DE KARLA PEREZ</h1>
-        </header>
-
+        {% include header.html %}
 
         <div class="main">
             <h1>Bienvenue sur mon portfolio</h1>
@@ -60,23 +39,6 @@
             </p>
         </div>
 
-        <footer>
-          <script>
-            let date = new Date()
-            let currentYear = date.getFullYear()
-          </script>
-
-          <img src="img/logo_portfolio.PNG" alt="logo"/>
-
-          <p class="footer-text">
-            2018-<script>document.write(currentYear)</script> | Portfolio de Karla Pérez
-          </p>
-
-          <div class="footer-logos">
-            <div>Hébergé par GutHub <i class="fab fa-github-alt"></i></div>
-            <div>Retrouvez-moi sur LinkedIn <i class="fab fa-linkedin"></i></div>
-          </div>
-        </footer>
-
+        {% include footer.html %}
     </body>
 </html>
