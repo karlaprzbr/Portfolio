@@ -15,7 +15,7 @@
     display: block !important;
   }
   .topnav.responsive {
-    position: relative;
+    position: fixed;
     height: 400px;
     display: flex;
     flex-direction: column !important;

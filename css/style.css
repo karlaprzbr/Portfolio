@@ -60,9 +60,10 @@ header h1 {
 nav {
     grid-row: 1;
     grid-column: 1 / 4;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 60px;
+    width: 100%;
     background-color: black;
     display: flex;
     flex-direction: row;
