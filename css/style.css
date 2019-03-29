@@ -21,6 +21,11 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 p, li {
   color: #444;
   text-align: justify;
@@ -93,6 +98,19 @@ nav .icon {
     grid-row: 3;
     grid-column: 2;
     padding: 20px 0;
+}
+
+.main.stage li {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.main.ppe li {
+    margin-bottom: 15px;
+}
+
+.undLn {
+    text-decoration: underline;
 }
 
 footer {
