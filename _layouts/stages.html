@@ -6,17 +6,59 @@
         {% include header.html %}
 
         <div class="main">
-            <h1>Météobjob</h1>
+            <!--<h1>Meteobjob</h1>
             <p>
               Pour commencer la formation, nous avons dû faire un stage d’observation de 4 semaines, nous permettant d’acquérir des compétences et de confirmer notre choix d’option.
             </p>
             <p>
               J’ai eu la chance d’effectuer mon premier stage au sein du groupe Meteojob, qui est une société de recrutement et de conseils en ressources humaines.
-            </p>
+            </p>-->
             <h1>Renault Digital</h1>
             <p>
-              Dans le cadre de mon stage de 4 semaines chez Renault Digital, j'ai eu l'occaion de programmer en Java des processeurs pour NiFi.
+                Renault Digital est une entité du Groupe Renault crée en 2017 dans le but de sous-traiter les projets informatiques. Renault Digital reçoit donc des propositions de projets de la part du Groupe Renault qu'elle développe et produit puis le projet est ensuite redirigé vers le Groupe qui l'exploite et qui en fait la maintenance en interne.
             </p>
+            <h3>Projet 1 :</h3>
+            <p>Conception d’une propriété qui permet de compter le nombre d’attributs dynamiques et statiques pour les FlowFiles générés dans NiFi.</p>
+            <ul>
+                <li>Comment c'était avant ?</li>
+                <p>
+                    Les FlowFiles générés dans NiFi ont un en-tête, qui contient ses attributs, et d’un corps, qui présente son contenu. Son en-tête contient donc des attributs statiques (par défaut, en quelques sortes) et des attributs dynamiques que l’on peut ajouter selon les besoins. Avant mon intervention, ces attributs étaient en désordre et n’étaient pas comptabilisés.
+                </p>
+                <li>Pourquoi, quel est le besoin ?</li>
+                <p>
+                    La demande était donc d’avoir rapidement un visuel des différents types d’attributs et de leur nombre.
+                </p>
+                <li>Comment j'ai accompli la tâche ?</li>
+                <p>
+                    Pour commencer, je me suis documentée sur le jargon lié au métier, c’est-à-dire, les DataLakes, Hive, Hadoop, HortonWorks DataFlow, les données en RAW, en GOLD, etc. J’ai ensuite approfondi mes recherches sur le fonctionnement de NiFi et de ses processeurs. Par la suite, j’ai trouvé sur le site GitHub le code source du processeur qui génère les FlowFiles. Ce code source était écrit en Java et j’ai donc dû me documenter longuement sur ce langage de programmation afin d’en comprendre les bases qui me seraient utiles dans le décryptage de mon code source. Un fois cette phase assimilée, j’ai pu produire un script qui comptait le nombre d’objets d’une collection où étaient stockées les différents attributs que j’ai donc injecté dans le code source du processeur. Par la suite, j’ai dû compiler mon projet afin d’en copier le fichier nar sur le serveur afin qu’il puisse être exploité par NiFi. J’ai ensuite pu commencer une phase de tests qui m’ont permis de peaufiner mon script et d’y ajouter des fonctionnalités.
+                </p>
+                <li>A quoi mon travail a servi ?</li>
+                <p>
+                    A compter les attributs.<br> Il est maintenant possible d’avoir rapidement une vue d’ensemble des différents types d’attributs et de leur nombre. Cette option permet également les traitements conditionnels sur le nombre d’attributs statiques ou dynamiques.
+                </p>
+            </ul>
+            <h3>Projet 2 :</h3>
+            <p>
+                Automatisation la transformation de tables JSON en requêtes SQL par le biais d’un script en Groovy (langage de programmation substitut de Java et inspiré par Python, Ruby et SmallTalk).
+            </p>
+            <ul>
+                <li>Comment c'était avant ?</li>
+                <p>
+                    Il existe des processeurs NiFi qui accomplissent cette tâche de transformation mais ils ne sont pas complets et il faut le faire en cinq étapes différentes (en utilisant 5 processeurs ReplaceText et ExtractText).
+                </p>
+                <li>Pourquoi, quel est le besoin ?</li>
+                <p>
+                    Pour que les données puissent être exploitées, elles doivent être conformes aux normes des bases de données dans lesquelles elles sont stockées. Or, certaines de ces données sont extraites dans un mauvais format. La demande est donc d’automatiser cette transformation en utilisant un seul processeur NiFi.
+                </p>
+                <li>Comment j'ai accompli la tâche ?</li>
+                <p>
+                    Documentation sur NiFi, les expressions régulières, Groovy, JavaScript, requêtage SQL.<br>Pour commencer, les tables JSON sont contenues dans les FlowFiles récupérés par d’autres processeurs. Ces FlowFiles ont un en-tête, qui contient ses attributs, et d’un corps, qui présente son contenu. Les tables JSON sont donc dans le corps du FlowFile. Pour pouvoir extraire ces données, j’ai commencé par me documenter sur les différents processeurs NiFi et leur fonctionnement. J’ai donc découvert un processeur ExecuteScript qui prend en paramètres le FlowFile ainsi qu’un script Groovy que j’ai dû produire pour répondre à la demande. Je me suis donc documentée sur les différents scripts de base liés à ce processeur ainsi que sur la programmation en Groovy. J’ai ensuite dû intégrer les RegEx (expressions régulières) à mon script afin de permettre le remplacement des différents termes employés par le terme approprié. Une fois les données des tables JSON transformées au bon format, j’ai dû les convertir en requêtes SQL. Le corps de mon FlowFile se base désormais sur le schéma « SELECT a, b, x, y FROM ${db.table.fullname} ». J’ai ensuite dû ajouter le contenu du corps du FlowFile dans un attribut de son en-tête que j’ai nommé « sql » dans l’optique que l’on ne puisse pas avoir accès au corps du FlowFile, les données importantes seront également en attribut.
+                </p>
+                <li>A quoi mon travail a servi ?</li>
+                <p>
+                    La production de ce script Groovy a permis l’automatisation de la conversion des données au bon format mais surtout a permis la production d’une requête SQL générique qui est prête à l’emploi par le biais d’un seul processeur NiFi au lieu de cinq, ce qui limite considérablement le temps de traitement des données ainsi que les éventuelles erreurs qui pourraient se produire.
+                </p>
+            </ul>
         </div>
 
         {% include footer.html %}
